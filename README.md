@@ -14,3 +14,61 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+# DevTinder
+
+# Video 1
+
+- Created Vite + React Application
+- Remove unnecessary code and Create Hello world
+- Install tailwind Css
+- Install Daisy UI
+- Add Navbar Componenet to App.js
+- Create a Navbar.jsx seperate file
+- Install react-router-dom
+  Body
+  Navbar  
+   Route = / => feed
+  Route = /login => Login
+  Route = /connections => Connections
+  Route = /profile => profile
+- Create BrowserRourer > Routes > Route = / body
+- Outlet in body
+- Footer Component creation
+
+# 2nd Video
+
+- Create Login Page
+- install axios
+- CORS - install cors in backend => add middleware with configuration:origin,Credentials:true
+- when ever doing API call pass : { withCredentials: true } in UI after axios
+- install reduxtoolkit and react/redux : https://redux-toolkit.js.org/tutorials/quick-start
+- create a configureStore
+- add Provider to App.jsx
+- create a slice and export the things
+- add reducer to store
+- login and see if your data is coming properly in the store
+- Navbar should update as soon as user log in
+- refactor the code by adding Constans file
+- create Components folder and add necessary components
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
