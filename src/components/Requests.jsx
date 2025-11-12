@@ -1,47 +1,46 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { BASE_URL } from "../utils/contants";
-import { addConnections } from "../utils/connectionSlice";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addRequests } from "../utils/requestsSlice";
 
-const Connections = () => {
-  const connections = useSelector((store) => store.connections);
+const Requests = () => {
+  const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
-  const fetchConnections = async () => {
+  const fetchRequests = async () => {
     try {
-      const res = await axios.get(BASE_URL + "/user/connections", {
+      const res = await axios.get(BASE_URL + "/user/requests/received", {
         withCredentials: true,
       });
-      //   console.log(res?.data?.data);
-      dispatch(addConnections(res?.data?.data));
+      dispatch(addRequests(res?.data?.data));
     } catch (err) {
       console.log(err);
     }
   };
-
   useEffect(() => {
-    fetchConnections();
+    fetchRequests();
   }, []);
 
-  if (!connections || connections.length === 0) {
+  if (!requests || requests.length === 0) {
     return (
       <div className="flex justify-center my-10">
-        <h1 className="text-bold text-2xl">No Connections found</h1>
+        <h1 className="text-bold text-2xl">No Requests found</h1>
       </div>
     );
   }
 
-  console.log(connections);
+  //   console.log(requests);
   return (
     <div className="my-10">
-      <h1 className="text-bold text-3xl text-center text-white">Connections</h1>
-      {connections.map((connection) => {
+      <h1 className="text-bold text-3xl text-center text-white">Requests</h1>
+      {requests.map((request) => {
         const { _id, firstName, lastName, photoUrl, age, gender, about } =
-          connection;
+          request.fromUserId;
+        console.log(request);
         return (
           <div
             key={_id}
-            className="m-4 p-4 border rounded-lg bg-base-300 flex gap-10 w-1/2 mx-auto"
+            className="m-4 p-4 border rounded-lg bg-base-300 flex items-center gap-10 w-2/5 mx-auto"
           >
             <div>
               <img
@@ -57,6 +56,10 @@ const Connections = () => {
               {age && gender && <p>{age + "," + gender}</p>}
               <p>{about}</p>
             </div>
+            <div className="flex gap-5">
+              <button className="btn btn-soft btn-primary">Reject</button>
+              <button className="btn btn-soft btn-secondary">Accept</button>
+            </div>
           </div>
         );
       })}
@@ -64,4 +67,4 @@ const Connections = () => {
   );
 };
 
-export default Connections;
+export default Requests;

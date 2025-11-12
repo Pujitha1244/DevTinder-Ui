@@ -53,6 +53,7 @@ If you are developing a production application, we recommend using TypeScript wi
 - create Components folder and add necessary components
 
 # 3rd Video
+
 - You should not be access other routes without login
 - if token is not opresent redirect user to login page
 - Logout feature
@@ -60,8 +61,8 @@ If you are developing a production application, we recommend using TypeScript wi
 - build the User card on feed
 - Edit profile featire
 - Show toast message on save of profile
-- See all my connections
--
+- New Page - See all my connections
+- new page - to see all my connection Requests
 -
 -
 -
