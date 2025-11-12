@@ -56,7 +56,21 @@ If you are developing a production application, we recommend using TypeScript wi
 - You should not be access other routes without login
 - if token is not opresent redirect user to login page
 - Logout feature
-- 
+- Get the feed and add feed in the store
+- build the User card on feed
+- Edit profile featire
+- Show toast message on save of profile
+- See all my connections
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
 -
 -
 -
