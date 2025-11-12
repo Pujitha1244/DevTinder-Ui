@@ -55,8 +55,8 @@ If you are developing a production application, we recommend using TypeScript wi
 # 3rd Video
 - You should not be access other routes without login
 - if token is not opresent redirect user to login page
--
--
+- Logout feature
+- 
 -
 -
 -
