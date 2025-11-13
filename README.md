@@ -64,7 +64,8 @@ If you are developing a production application, we recommend using TypeScript wi
 - New Page - See all my connections
 - new page - to see all my connection Requests
 - Feature to accept / Reject connection Request
--
+
+- send/ignore the request
 -
 -
 -
