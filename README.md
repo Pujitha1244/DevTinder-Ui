@@ -67,17 +67,70 @@ If you are developing a production application, we recommend using TypeScript wi
 
 - send/ignore the request
 -
+
+# Deployment
+
+- Sign up on aws
+- launch instance
+- chmod 400 <secret>.pem
+- ssh i
+- install Node
+- Git clone UI and API
+
+# frontend
+
 -
--
--
--
--
--
--
--
--
--
--
+- ssh -i "devTinder-secret.pem" ubuntu@ec2-54-206-96-91.ap-southeast-2.compute.amazonaws.com
+
+- went to project folder and did npm install
+- npm run build
+- to deploy frontend project we need nginx
+- sudo apt update
+- sudo apt install nginx
+- sudo systemctl start nginx
+- sudo systemctl enable nginx
+- copy code from dist(build Files) to /var/www/html so do cd /var/www/html
+- sudo scp -r dist/\* /var/www/html
+- Enable port : 80 on your instance
+
+# Backend
+
+- Go to folder cd app name
+- npm install
+- allowed ec2 instance public Ip on mongo db server
+- npm install pm2 -g
+- pm2 start npm -- start
+- pm2 logs
+- pm2 flush npm() // to clear logs
+- pm2 list : process that are running
+- pm2 stop npm (npm : name of the process)
+- pm2 delete npm
+- pm2 start npm --name "devTinder-Backend" -- start : custome name
+
+modify base URL in frontend to '/api
+
+-     frontend: http://54.206.96.91/
+       Backend: http://54.206.96.91:3001
+
+       Domain name = devtinder.com => 54.206.96.91
+
+       frontend : devtinder.com
+       backend : devtinder.com:3001(No)  =>  devtinder.com/api (we need)
+       for this we need nginx: nginx proxy pass
+
+- sudo nano /etc/nginx/sites-available/
+
+server_name 54.206.96.91;
+
+- location /api/ {
+  proxy_pass http://localhost:3001/;
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection 'upgrade';
+  proxy_set_header Host $host;
+  proxy_cache_bypass $http_upgrade;
+  }
+
 -
 -
 -
