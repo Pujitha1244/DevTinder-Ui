@@ -83,14 +83,14 @@ If you are developing a production application, we recommend using TypeScript wi
 - ssh -i "devTinder-secret.pem" ubuntu@ec2-54-206-96-91.ap-southeast-2.compute.amazonaws.com
 
 - went to project folder and did npm install
-- npm run build
+- npm run build 1
 - to deploy frontend project we need nginx
 - sudo apt update
 - sudo apt install nginx
 - sudo systemctl start nginx
 - sudo systemctl enable nginx
-- copy code from dist(build Files) to /var/www/html so do cd /var/www/html
-- sudo scp -r dist/\* /var/www/html
+- copy code from dist(build Files) to /var/www/html so do cd /var/www/html   
+- sudo scp -r dist/* /var/www/html  2
 - Enable port : 80 on your instance
 
 # Backend
@@ -118,7 +118,8 @@ modify base URL in frontend to '/api
        backend : devtinder.com:3001(No)  =>  devtinder.com/api (we need)
        for this we need nginx: nginx proxy pass
 
-- sudo nano /etc/nginx/sites-available/
+- sudo nano /etc/nginx/sites-available/default
+
 
 server_name 54.206.96.91;
 
@@ -131,12 +132,31 @@ server_name 54.206.96.91;
   proxy_cache_bypass $http_upgrade;
   }
 
+  ssh -i "devTinder-secret.pem" ubuntu@ec2-54-206-96-91.ap-southeast-2.compute.amazonaws.com
+
+
+
+
+devtinderlab.info
 -
 -
 -
 -
 -
 -
+-
+-
+-
+-
+-
+-
+
+# Adding CustopmeDomain Name   : devtinderlab.info
+- Purchased Domain name from Go Daddy
+- sign up on CloudFlare and add a new Domain Name
+- Change the Name servers on GoDaddy and point it to cloudFlare
+- Wait for some time till nameservers are updated
+- Go to DNs from side bar
 -
 -
 -
