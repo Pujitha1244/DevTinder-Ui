@@ -89,8 +89,8 @@ If you are developing a production application, we recommend using TypeScript wi
 - sudo apt install nginx
 - sudo systemctl start nginx
 - sudo systemctl enable nginx
-- copy code from dist(build Files) to /var/www/html so do cd /var/www/html   
-- sudo scp -r dist/* /var/www/html  2
+- copy code from dist(build Files) to /var/www/html so do cd /var/www/html
+- sudo scp -r dist/\* /var/www/html 2
 - Enable port : 80 on your instance
 
 # Backend
@@ -120,7 +120,6 @@ modify base URL in frontend to '/api
 
 - sudo nano /etc/nginx/sites-available/default
 
-
 server_name 54.206.96.91;
 
 - location /api/ {
@@ -134,11 +133,8 @@ server_name 54.206.96.91;
 
   ssh -i "devTinder-secret.pem" ubuntu@ec2-54-206-96-91.ap-southeast-2.compute.amazonaws.com
 
+## devtinderlab.info
 
-
-
-devtinderlab.info
--
 -
 -
 -
@@ -151,12 +147,41 @@ devtinderlab.info
 -
 -
 
-# Adding CustopmeDomain Name   : devtinderlab.info
+# Adding CustopmeDomain Name : devtinderlab.info
+
 - Purchased Domain name from Go Daddy
 - sign up on CloudFlare and add a new Domain Name
 - Change the Name servers on GoDaddy and point it to cloudFlare
 - Wait for some time till nameservers are updated
 - Go to DNs from side bar
+-
+-
+-
+-
+-
+-
+
+# Razor pay
+
+- Signup and complete KYC
+- Created UI for Premium page
+- creating API for Crete order in Backend
+- added my key and secret in .env file
+- Initialized Razorpay in Utils
+- Creating order on razorpay
+- created Schema and model
+- saved order details and return details
+- making APi dynamic
+- setUp razor pay 
+-
+-
+-
+-
+-
+-
+-
+-
+-
 -
 -
 -
